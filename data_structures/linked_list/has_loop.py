@@ -36,6 +36,21 @@ class Node:
         >>> root_node.next_node.next_node.next_node = root_node.next_node
         >>> root_node.has_loop
         True
+        >>> self_loop = Node(1)
+        >>> self_loop.next_node = self_loop
+        >>> self_loop.has_loop
+        True
+        >>> final_node_loop = Node(1)
+        >>> final_node_loop.next_node = Node(2)
+        >>> final_node_loop.next_node.next_node = final_node_loop.next_node
+        >>> final_node_loop.has_loop
+        True
+        >>> duplicate_data = Node(5)
+        >>> duplicate_data.next_node = Node(6)
+        >>> duplicate_data.next_node.next_node = Node(5)
+        >>> duplicate_data.next_node.next_node.next_node = Node(6)
+        >>> duplicate_data.has_loop
+        False
         """
         try:
             list(self)
